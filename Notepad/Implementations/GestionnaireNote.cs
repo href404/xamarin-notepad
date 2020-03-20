@@ -43,7 +43,7 @@ namespace Notepad.Implementations
 
         public void SupprimerNote()
         {
-            File.WriteAllText(FichierNote.FullName, string.Empty);
+            File.Delete(FichierNote.FullName);
             ZoneTextuel.Text = string.Empty;
         }
 

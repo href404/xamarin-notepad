@@ -29,8 +29,15 @@ namespace Notepad.Vues
 
         #region Evenements
 
-        private void SurAppuiSauvegarder(object sender, EventArgs e) { GestionnaireNote.SauvegarderNote(); }
-        private void SurAppuiSupprimer(object sender, EventArgs e) { GestionnaireNote.SupprimerNote(); }
+        private void SurAppuiSauvegarder(object sender, EventArgs e) { 
+            GestionnaireNote.SauvegarderNote();
+            DisplayAlert("Sauvgarde", "Votre note a bien été enregistrée", "OK");
+        }
+
+        private async void SurAppuiSupprimer(object sender, EventArgs e) {
+            if (await DisplayAlert("Suppression", "Êtes-vous sur de vouloir supprimer votre note ?", "Oui", "Non"))
+                GestionnaireNote.SupprimerNote(); 
+        }
 
         #endregion
 
