@@ -7,17 +7,30 @@ namespace Notepad.Vues
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        #region Variables
+
         private readonly GestionnaireNote GestionnaireNote;
 
-        public MainPage() { 
+        #endregion
+
+        #region Implémentation ContentPage
+
+        public MainPage()
+        {
             InitializeComponent();
 
             GestionnaireNote = new GestionnaireNote(ZoneTextuel);
             GestionnaireNote.ChargerNote();
         }
 
-        private void Button_Clicked(object sender, EventArgs e) { GestionnaireNote.SauvegarderNote(); }
+        #endregion
 
-        private void Button_Clicked_1(object sender, EventArgs e) { GestionnaireNote.SupprimerNote(); }
+        #region Evenements
+
+        private void SurAppuiSauvegarder(object sender, EventArgs e) { GestionnaireNote.SauvegarderNote(); }
+        private void SurAppuiSupprimer(object sender, EventArgs e) { GestionnaireNote.SupprimerNote(); }
+
+        #endregion
+
     }
 }

@@ -7,16 +7,32 @@ namespace Notepad
 {
     public class GestionnaireNote
     {
+
+        #region Constantes
+        
         private const string NOM_FICHIER_NOTE = "Notepad.txt";
+
+        #endregion
+
+        #region Variables
 
         private readonly FileInfo FichierNote;
         private readonly Editor ZoneTextuel;
-        
+
+        #endregion
+
+        #region Constructeur
+
         public GestionnaireNote(Editor zoneTextuel)
         {
             FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
             ZoneTextuel = zoneTextuel;
         }
+
+        #endregion
+
+        #region Méthodes publiques
+
 
         public void SauvegarderNote()
         {
@@ -38,5 +54,8 @@ namespace Notepad
             ZoneTextuel.Text = File.ReadAllText(FichierNote.FullName);
             Debug.WriteLine("Les notes ont été chargées dans la zone textuel !");
         }
+
+        #endregion
+
     }
 }
