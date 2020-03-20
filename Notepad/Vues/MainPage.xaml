@@ -35,12 +35,11 @@
                 Text="Notepad" />
 
             <Editor
-                x:Name="ZoneTextuel"
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                HeightRequest="200"
-                Placeholder="Entrez votre note" />
+                Placeholder="Entrez votre note"
+                Text="{Binding Contenu, Mode=TwoWay}" />
 
             <Button
                 Grid.Row="2"

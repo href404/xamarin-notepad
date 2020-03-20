@@ -1,8 +1,8 @@
 ﻿using Notepad.Interfaces;
+using Notepad.Modeles;
 using System;
 using System.Diagnostics;
 using System.IO;
-using Xamarin.Forms;
 
 namespace Notepad.Implementations
 {
@@ -20,17 +20,17 @@ namespace Notepad.Implementations
 
         private readonly IGestionnaireParametre GestionnaireParametre;
         private readonly FileInfo FichierNote;
-        private readonly Editor ZoneTextuel;
+        public readonly NoteModele Note;
 
         #endregion
 
         #region Constructeur
 
-        public GestionnaireNote(IGestionnaireParametre gestionnaireParametre, Editor zoneTextuel)
+        public GestionnaireNote(NoteModele note, IGestionnaireParametre gestionnaireParametre)
         {
             GestionnaireParametre = gestionnaireParametre;
+            Note = note;
             FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
-            ZoneTextuel = zoneTextuel;
         }
 
         #endregion
@@ -40,14 +40,14 @@ namespace Notepad.Implementations
 
         public void SauvegarderNote()
         {
-            File.WriteAllText(FichierNote.FullName, ZoneTextuel.Text);
+            File.WriteAllText(FichierNote.FullName, Note.Contenu);
             Debug.WriteLine("Sauvegarde effectuée !");
         }
 
         public void SupprimerNote()
         {
             File.Delete(FichierNote.FullName);
-            ZoneTextuel.Text = string.Empty;
+            Note.Contenu = string.Empty;
         }
 
         public void ChargerNote()
@@ -58,7 +58,7 @@ namespace Notepad.Implementations
             if (!FichierNote.Exists)
                 return;
 
-            ZoneTextuel.Text = File.ReadAllText(FichierNote.FullName);
+            Note.Contenu = File.ReadAllText(FichierNote.FullName);
             Debug.WriteLine("Les notes ont été chargées dans la zone textuel !");
         }
 

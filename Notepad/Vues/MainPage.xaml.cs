@@ -1,5 +1,6 @@
 ﻿using Notepad.Implementations;
 using Notepad.Interfaces;
+using Notepad.Modeles;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,7 @@ namespace Notepad.Vues
     {
         #region Variables
 
+        private readonly NoteModele Note;
         private readonly IGestionnaireNote GestionnaireNote;
         private readonly IGestionnaireParametre GestionnaireParametre;
         
@@ -21,10 +23,12 @@ namespace Notepad.Vues
         public MainPage()
         {
             InitializeComponent();
-
+            
+            Note = new NoteModele();
             GestionnaireParametre = new GestionnaireParametre();
-            GestionnaireNote = new GestionnaireNote(GestionnaireParametre, ZoneTextuel);
+            GestionnaireNote = new GestionnaireNote(Note, GestionnaireParametre);
             GestionnaireNote.ChargerNote();
+            BindingContext = Note;
         }
 
         #endregion
