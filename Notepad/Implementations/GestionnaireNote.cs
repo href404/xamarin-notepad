@@ -13,10 +13,12 @@ namespace Notepad.Implementations
         
         private const string NOM_FICHIER_NOTE = "Notepad.txt";
 
+
         #endregion
 
         #region Variables
 
+        private readonly IGestionnaireParametre GestionnaireParametre;
         private readonly FileInfo FichierNote;
         private readonly Editor ZoneTextuel;
 
@@ -24,8 +26,9 @@ namespace Notepad.Implementations
 
         #region Constructeur
 
-        public GestionnaireNote(Editor zoneTextuel)
+        public GestionnaireNote(IGestionnaireParametre gestionnaireParametre, Editor zoneTextuel)
         {
+            GestionnaireParametre = gestionnaireParametre;
             FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
             ZoneTextuel = zoneTextuel;
         }
@@ -49,6 +52,9 @@ namespace Notepad.Implementations
 
         public void ChargerNote()
         {
+            if (!GestionnaireParametre.ObtenirChargementNoteAuDemarrage())
+                return;
+
             if (!FichierNote.Exists)
                 return;
 

@@ -12,7 +12,8 @@ namespace Notepad.Vues
         #region Variables
 
         private readonly IGestionnaireNote GestionnaireNote;
-
+        private readonly IGestionnaireParametre GestionnaireParametre;
+        
         #endregion
 
         #region Implémentation ContentPage
@@ -21,8 +22,9 @@ namespace Notepad.Vues
         {
             InitializeComponent();
 
-            GestionnaireNote = new GestionnaireNote(ZoneTextuel);
+            GestionnaireNote = new GestionnaireNote(GestionnaireParametre, ZoneTextuel);
             GestionnaireNote.ChargerNote();
+            GestionnaireParametre = new GestionnaireParametre();
         }
 
         #endregion
@@ -41,7 +43,7 @@ namespace Notepad.Vues
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ParametrePage());
+            await Navigation.PushModalAsync(new ParametrePage(GestionnaireParametre));
         }
 
         #endregion

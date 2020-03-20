@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notepad.Interfaces;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,28 +9,23 @@ namespace Notepad.Vues
     public partial class ParametrePage : ContentPage
     {
 
-        private const string CHARGEMENT_NOTE_AU_DEMARRAGE = "ChargementNoteAuDemarrage";
-        private const string SAUVEGARDE_NOTE_SUR_FERMETURE = "SauvegardeNoteSurFermeture";
+        private readonly IGestionnaireParametre GestionnaireParametre;
 
-
-        public ParametrePage()
+        public ParametrePage(IGestionnaireParametre gestionnaireParametre)
         {
             InitializeComponent();
+            GestionnaireParametre = gestionnaireParametre;
 
-            if (Application.Current.Properties.ContainsKey(CHARGEMENT_NOTE_AU_DEMARRAGE))
-                ChargementNoteDemarrage.IsToggled = (bool) Application.Current.Properties[CHARGEMENT_NOTE_AU_DEMARRAGE];
-
-            if (Application.Current.Properties.ContainsKey(SAUVEGARDE_NOTE_SUR_FERMETURE))
-                SauvegardeNoteFermeture.IsToggled = (bool) Application.Current.Properties[SAUVEGARDE_NOTE_SUR_FERMETURE];
+            ChargementNoteDemarrage.IsToggled = GestionnaireParametre.ObtenirChargementNoteAuDemarrage();
+            SauvegardeNoteFermeture.IsToggled = GestionnaireParametre.ObtenirSauvegarderNoteSurFermeture();
         }
 
         private async void SurAppuiAnnuler(object sender, EventArgs e) { await Navigation.PopModalAsync(); }
 
         private async void SurAppuiEnregistrer(object sender, EventArgs e)
         {
-            Application.Current.Properties[CHARGEMENT_NOTE_AU_DEMARRAGE] = ChargementNoteDemarrage.IsToggled;
-            Application.Current.Properties[SAUVEGARDE_NOTE_SUR_FERMETURE] = SauvegardeNoteFermeture.IsToggled;
-            
+            GestionnaireParametre.DefinirChargementNoteAuDemarrage(ChargementNoteDemarrage.IsToggled);
+            GestionnaireParametre.DefinirSauvegarderNoteSurFermeture(SauvegardeNoteFermeture.IsToggled);
             await Navigation.PopModalAsync();
         }
     }
