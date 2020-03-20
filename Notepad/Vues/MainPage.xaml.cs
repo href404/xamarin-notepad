@@ -39,6 +39,11 @@ namespace Notepad.Vues
                 GestionnaireNote.SupprimerNote(); 
         }
 
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ParametrePage());
+        }
+
         #endregion
 
     }

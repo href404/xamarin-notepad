@@ -6,6 +6,11 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="ToolbarItem_Clicked" Text="Parametres" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
 
         <Grid Margin="20">

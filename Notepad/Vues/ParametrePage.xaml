@@ -36,7 +36,7 @@
                     HorizontalOptions="StartAndExpand"
                     Text="Charger le document au démarrage"
                     VerticalTextAlignment="Center" />
-                <Switch Toggled="Switch_Toggled" />
+                <Switch x:Name="ChargementNoteDemarrage" />
             </StackLayout>
 
             <StackLayout
@@ -47,20 +47,20 @@
                     HorizontalOptions="StartAndExpand"
                     Text="Sauvegarde le document à la fermeture"
                     VerticalTextAlignment="Center" />
-                <Switch Toggled="Switch_Toggled_1" />
+                <Switch x:Name="SauvegardeNoteFermeture" />
             </StackLayout>
 
             <Button
                 Grid.Row="3"
                 Grid.ColumnSpan="1"
-                Clicked="Button_Clicked"
+                Clicked="SurAppuiAnnuler"
                 Text="Annuler"
                 VerticalOptions="End" />
 
             <Button
                 Grid.Row="3"
                 Grid.Column="1"
-                Clicked="Button_Clicked_1"
+                Clicked="SurAppuiEnregistrer"
                 Text="Sauvegarder"
                 VerticalOptions="End" />
 
