@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="ToolbarItem_Clicked" Text="Parametres" />
+        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
