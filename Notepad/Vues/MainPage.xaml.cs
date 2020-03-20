@@ -18,5 +18,6 @@ namespace Notepad.Vues
 
         private void Button_Clicked(object sender, EventArgs e) { GestionnaireNote.SauvegarderNote(); }
 
+        private void Button_Clicked_1(object sender, EventArgs e) { GestionnaireNote.SupprimerNote(); }
     }
 }

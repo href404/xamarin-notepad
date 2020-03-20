@@ -24,6 +24,12 @@ namespace Notepad
             Debug.WriteLine("Sauvegarde effectuée !");
         }
 
+        public void SupprimerNote()
+        {
+            File.WriteAllText(FichierNote.FullName, string.Empty);
+            ZoneTextuel.Text = string.Empty;
+        }
+
         public void ChargerNote()
         {
             if (!FichierNote.Exists)
