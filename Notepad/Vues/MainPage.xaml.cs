@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Notepad.Implementations;
+using Notepad.Interfaces;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +11,7 @@ namespace Notepad.Vues
     {
         #region Variables
 
-        private readonly GestionnaireNote GestionnaireNote;
+        private readonly IGestionnaireNote GestionnaireNote;
 
         #endregion
 
