@@ -16,15 +16,15 @@ namespace Notepad.Vues
         
         #endregion
 
-        #region Implémentation ContentPage
+        #region Constructeur
 
         public MainPage()
         {
             InitializeComponent();
 
+            GestionnaireParametre = new GestionnaireParametre();
             GestionnaireNote = new GestionnaireNote(GestionnaireParametre, ZoneTextuel);
             GestionnaireNote.ChargerNote();
-            GestionnaireParametre = new GestionnaireParametre();
         }
 
         #endregion
