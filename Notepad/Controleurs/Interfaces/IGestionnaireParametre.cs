@@ -1,4 +1,4 @@
-﻿namespace Notepad.Interfaces
+﻿namespace Notepad.Controleurs.Interfaces
 {
     public interface IGestionnaireParametre
     {

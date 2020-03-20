@@ -1,10 +1,10 @@
-﻿using Notepad.Interfaces;
+﻿using Notepad.Controleurs.Interfaces;
 using Notepad.Modeles;
 using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Notepad.Implementations
+namespace Notepad.Controleurs.Implementations
 {
     public class GestionnaireNote : IGestionnaireNote
     {

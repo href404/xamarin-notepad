@@ -1,4 +1,4 @@
-﻿using Notepad.Interfaces;
+﻿using Notepad.Controleurs.Interfaces;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
