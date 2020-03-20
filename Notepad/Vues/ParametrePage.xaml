@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Notepad.Vues.MainPage"
+    x:Class="Notepad.Vues.ParametrePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -16,39 +16,52 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Label
-                Grid.Row="0"
-                Grid.Column="0"
                 Grid.ColumnSpan="2"
                 FontAttributes="Bold"
                 FontSize="Title"
                 HorizontalOptions="Center"
-                Text="Notepad" />
+                Text="Paramètres" />
 
-            <Editor
-                x:Name="ZoneTextuel"
+            <StackLayout
                 Grid.Row="1"
-                Grid.Column="0"
                 Grid.ColumnSpan="2"
-                HeightRequest="200"
-                Placeholder="Entrez votre note" />
+                Orientation="Horizontal">
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="Charger le document au démarrage"
+                    VerticalTextAlignment="Center" />
+                <Switch Toggled="Switch_Toggled" />
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal">
+                <Label
+                    HorizontalOptions="StartAndExpand"
+                    Text="Sauvegarde le document à la fermeture"
+                    VerticalTextAlignment="Center" />
+                <Switch Toggled="Switch_Toggled_1" />
+            </StackLayout>
 
             <Button
-                Grid.Row="2"
-                Grid.Column="0"
-                Clicked="SurAppuiSauvegarder"
-                Text="Sauvegarder"
+                Grid.Row="3"
+                Grid.ColumnSpan="1"
+                Clicked="Button_Clicked"
+                Text="Annuler"
                 VerticalOptions="End" />
 
             <Button
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
-                Clicked="SurAppuiSupprimer"
-                Text="Supprimer"
+                Clicked="Button_Clicked_1"
+                Text="Sauvegarder"
                 VerticalOptions="End" />
 
         </Grid>
