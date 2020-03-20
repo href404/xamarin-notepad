@@ -8,9 +8,22 @@
     mc:Ignorable="d">
     <ContentPage.Content>
 
-        <StackLayout Margin="20">
+        <Grid Margin="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
             <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 FontAttributes="Bold"
                 FontSize="Title"
                 HorizontalOptions="Center"
@@ -18,26 +31,29 @@
 
             <Editor
                 x:Name="ZoneTextuel"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 HeightRequest="200"
                 Placeholder="Entrez votre note" />
 
-            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+            <Button
+                Grid.Row="2"
+                Grid.Column="0"
+                BackgroundColor="LightGreen"
+                Clicked="Button_Clicked"
+                HorizontalOptions="Center"
+                Text="Sauvegarder" />
 
-                <Button
-                    BackgroundColor="LightGreen"
-                    Clicked="Button_Clicked"
-                    HorizontalOptions="Center"
-                    Text="Sauvegarder" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="OrangeRed"
+                Clicked="Button_Clicked_1"
+                HorizontalOptions="Center"
+                Text="Supprimer" />
 
-                <Button
-                    BackgroundColor="OrangeRed"
-                    Clicked="Button_Clicked_1"
-                    HorizontalOptions="Center"
-                    Text="Supprimer" />
-
-            </StackLayout>
-
-        </StackLayout>
+        </Grid>
 
     </ContentPage.Content>
 </ContentPage>
