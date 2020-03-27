@@ -1,6 +1,7 @@
 ﻿using Notepad.Controleurs.Interfaces;
 using Notepad.Modeles;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
@@ -32,10 +33,16 @@ namespace Notepad.Controleurs.Implementations
             FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
         }
 
+        public GestionnaireNote(IGestionnaireParametre gestionnaireParametre)
+        {
+            GestionnaireParametre = gestionnaireParametre;
+            FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
+        }
+
         #endregion
 
         #region Méthodes publiques
-        
+
         public void SauvegarderNote()
         {
             File.WriteAllText(FichierNote.FullName, Note.Contenu);
@@ -58,6 +65,15 @@ namespace Notepad.Controleurs.Implementations
 
             Note.Contenu = File.ReadAllText(FichierNote.FullName);
             Debug.WriteLine("Les notes ont été chargées dans la zone textuel !");
+        }
+
+        public NoteModele[] ObtenirNotes()
+        {
+            List<NoteModele> notes = new List<NoteModele>();
+            foreach (string fichier in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.txt"))
+                notes.Add(new NoteModele { Contenu = File.ReadAllText(fichier) });
+
+            return notes.ToArray();
         }
 
         #endregion

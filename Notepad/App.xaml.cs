@@ -9,7 +9,7 @@ namespace Notepad
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new NotePage());
+            MainPage = new NavigationPage(new ListeNotesPage());
         }
 
         protected override void OnStart() { }
