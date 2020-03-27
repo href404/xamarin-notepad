@@ -11,6 +11,7 @@ namespace Notepad.Vues
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListeNotesPage : ContentPage
     {
+
         #region Variables
 
         private readonly IGestionnaireParametre GestionnaireParametre;

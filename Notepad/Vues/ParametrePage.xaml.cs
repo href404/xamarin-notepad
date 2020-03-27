@@ -9,7 +9,13 @@ namespace Notepad.Vues
     public partial class ParametrePage : ContentPage
     {
 
+        #region Variables
+
         private readonly IGestionnaireParametre GestionnaireParametre;
+
+        #endregion
+
+        #region Constructeur
 
         public ParametrePage(IGestionnaireParametre gestionnaireParametre)
         {
@@ -20,6 +26,10 @@ namespace Notepad.Vues
             SauvegardeNoteFermeture.IsToggled = GestionnaireParametre.ObtenirSauvegarderNoteSurFermeture();
         }
 
+        #endregion
+
+        #region Evenements
+
         private async void SurAppuiAnnuler(object sender, EventArgs e) { await Navigation.PopModalAsync(); }
 
         private async void SurAppuiEnregistrer(object sender, EventArgs e)
@@ -28,5 +38,8 @@ namespace Notepad.Vues
             GestionnaireParametre.DefinirSauvegarderNoteSurFermeture(SauvegardeNoteFermeture.IsToggled);
             await Navigation.PopModalAsync();
         }
+
+        #endregion
+
     }
 }

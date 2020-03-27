@@ -47,6 +47,5 @@ namespace Notepad.Vues
 
         #endregion
 
-
     }
 }
