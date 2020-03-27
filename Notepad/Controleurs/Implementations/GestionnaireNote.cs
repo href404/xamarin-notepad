@@ -13,7 +13,6 @@ namespace Notepad.Controleurs.Implementations
         
         private const string NOM_FICHIER_NOTE = "Notepad.txt";
 
-
         #endregion
 
         #region Variables
@@ -36,8 +35,7 @@ namespace Notepad.Controleurs.Implementations
         #endregion
 
         #region Méthodes publiques
-
-
+        
         public void SauvegarderNote()
         {
             File.WriteAllText(FichierNote.FullName, Note.Contenu);
