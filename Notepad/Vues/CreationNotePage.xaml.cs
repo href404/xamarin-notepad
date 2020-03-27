@@ -41,8 +41,10 @@ namespace Notepad.Vues
 
         private async void SurAppuiAnnuler(object sender, EventArgs e)
         {
-            if (await DisplayAlert("Annuler", "Êtes-vous sur de vouloir annuler la création de votre note ?", "Oui", "Non"))
+            if (await DisplayAlert("Annuler", "Êtes-vous sur de vouloir annuler la création de votre note ?", "Non", "Oui"))
                 GestionnaireNote.SupprimerNote(Note);
+
+            await Navigation.PopModalAsync();
         }
 
         #endregion
