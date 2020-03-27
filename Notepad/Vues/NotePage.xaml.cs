@@ -14,20 +14,26 @@ namespace Notepad.Vues
 
         private readonly NoteModele Note;
         private readonly IGestionnaireNote GestionnaireNote;
-        private readonly IGestionnaireParametre GestionnaireParametre;
         
         #endregion
 
         #region Constructeur
 
-        public NotePage()
+        public NotePage(IGestionnaireNote gestionnaireNote, NoteModele note)
         {
             InitializeComponent();
-            
-            Note = new NoteModele();
-            GestionnaireParametre = new GestionnaireParametre();
-            GestionnaireNote = new GestionnaireNote(Note, GestionnaireParametre);
-            GestionnaireNote.ChargerNote();
+            GestionnaireNote = gestionnaireNote;
+            Note = note;
+        }
+
+        #endregion
+
+        #region Implémentation ContentPage
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GestionnaireNote.ChargerNote(Note);
             BindingContext = Note;
         }
 
@@ -35,21 +41,16 @@ namespace Notepad.Vues
 
         #region Evenements
 
-        private void SurAppuiSauvegarder(object sender, EventArgs e) 
+        private async void SurAppuiSauvegarder(object sender, EventArgs e) 
         { 
-            GestionnaireNote.SauvegarderNote();
-            DisplayAlert("Sauvgarde", "Votre note a bien été enregistrée", "OK");
+            GestionnaireNote.SauvegarderNote(Note);
+            await Navigation.PopModalAsync();
         }
 
         private async void SurAppuiSupprimer(object sender, EventArgs e) 
         {
             if (await DisplayAlert("Suppression", "Êtes-vous sur de vouloir supprimer votre note ?", "Oui", "Non"))
-                GestionnaireNote.SupprimerNote(); 
-        }
-
-        private async void SurAppuiParametres(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new ParametrePage(GestionnaireParametre));
+                GestionnaireNote.SupprimerNote(Note); 
         }
 
         #endregion

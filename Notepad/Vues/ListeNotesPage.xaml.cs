@@ -2,10 +2,6 @@
 using Notepad.Controleurs.Interfaces;
 using Notepad.Modeles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,6 +17,7 @@ namespace Notepad.Vues
         private readonly IGestionnaireNote GestionnaireNote;
 
         #endregion
+
         #region Constructeur
 
         public ListeNotesPage() 
@@ -44,9 +41,20 @@ namespace Notepad.Vues
 
         #region Evenements
 
-        private void SurElementListeNoteSelectionnee(object sender, SelectedItemChangedEventArgs e)
+        private async void SurElementListeNoteSelectionnee(object sender, SelectedItemChangedEventArgs e)
         {
+            ListView notes = sender as ListView;
+            NoteModele note = notes.SelectedItem as NoteModele;
+            await Navigation.PushModalAsync(new NotePage(GestionnaireNote, note));
+        }
 
+        private async void SurAppuiParametres(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ParametrePage(GestionnaireParametre));
+        }
+        private async void SurAppuiNouvelleNote(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new CreationNotePage(GestionnaireNote));
         }
 
         #endregion

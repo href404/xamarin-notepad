@@ -2,11 +2,11 @@
 
 namespace Notepad.Controleurs.Interfaces
 {
-    interface IGestionnaireNote
+    public interface IGestionnaireNote
     {
-        void SauvegarderNote();
-        void SupprimerNote();
-        void ChargerNote();
+        void SauvegarderNote(NoteModele note);
+        void SupprimerNote(NoteModele note);
+        void ChargerNote(NoteModele note);
         NoteModele[] ObtenirNotes();
     }
 }

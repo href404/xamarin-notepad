@@ -5,13 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Notepad.Vues.ListeNotesPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note" />
+        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres" />
+    </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <StackLayout>
-            <ListView 
-                x:Name="ListeNotes"
-                Margin="20"
-                ItemSelected="SurElementListeNoteSelectionnee"/>
+            <ListView x:Name="ListeNotes" Margin="20" ItemSelected="SurElementListeNoteSelectionnee">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Contenu, Mode=TwoWay}" Detail="{Binding DateDerniereModification, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
     

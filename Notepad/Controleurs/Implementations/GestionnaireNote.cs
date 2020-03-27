@@ -12,58 +12,51 @@ namespace Notepad.Controleurs.Implementations
 
         #region Constantes
         
-        private const string NOM_FICHIER_NOTE = "Notepad.txt";
+        private const string EXTENSION_FICHIER_TEXTE = ".txt";
 
         #endregion
 
         #region Variables
 
         private readonly IGestionnaireParametre GestionnaireParametre;
-        private readonly FileInfo FichierNote;
-        public readonly NoteModele Note;
 
         #endregion
 
         #region Constructeur
 
-        public GestionnaireNote(NoteModele note, IGestionnaireParametre gestionnaireParametre)
-        {
-            GestionnaireParametre = gestionnaireParametre;
-            Note = note;
-            FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
-        }
-
         public GestionnaireNote(IGestionnaireParametre gestionnaireParametre)
         {
             GestionnaireParametre = gestionnaireParametre;
-            FichierNote = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), NOM_FICHIER_NOTE));
         }
 
         #endregion
 
         #region Méthodes publiques
 
-        public void SauvegarderNote()
+        public void SauvegarderNote(NoteModele note)
         {
-            File.WriteAllText(FichierNote.FullName, Note.Contenu);
+            note.Chemin = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Guid.NewGuid() + EXTENSION_FICHIER_TEXTE));
+            note.DateDerniereModification = DateTime.Now;
+            File.WriteAllText(note.Chemin.FullName, note.Contenu);
             Debug.WriteLine("Sauvegarde effectuée !");
         }
 
-        public void SupprimerNote()
+        public void SupprimerNote(NoteModele note)
         {
-            File.Delete(FichierNote.FullName);
-            Note.Contenu = string.Empty;
+            File.Delete(note.Chemin.FullName);
+            note.Contenu = string.Empty;
         }
 
-        public void ChargerNote()
+        public void ChargerNote(NoteModele note)
         {
             if (!GestionnaireParametre.ObtenirChargementNoteAuDemarrage())
                 return;
 
-            if (!FichierNote.Exists)
+            if (!note.Chemin.Exists)
                 return;
 
-            Note.Contenu = File.ReadAllText(FichierNote.FullName);
+            note.Contenu = File.ReadAllText(note.Chemin.FullName);
+            note.DateDerniereModification = File.GetLastWriteTime(note.Chemin.FullName);
             Debug.WriteLine("Les notes ont été chargées dans la zone textuel !");
         }
 
@@ -71,7 +64,11 @@ namespace Notepad.Controleurs.Implementations
         {
             List<NoteModele> notes = new List<NoteModele>();
             foreach (string fichier in Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.txt"))
-                notes.Add(new NoteModele { Contenu = File.ReadAllText(fichier) });
+                notes.Add(new NoteModele 
+                { 
+                    Contenu = File.ReadAllText(fichier),
+                    DateDerniereModification = File.GetLastWriteTime(fichier)
+                });
 
             return notes.ToArray();
         }
