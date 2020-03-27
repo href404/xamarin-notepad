@@ -21,7 +21,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ListeNotes" Margin="20" ItemSelected="SurElementListeNoteSelectionnee">
+            <ListView x:Name="ListeNotes" Margin="{StaticResource PageMargin}" ItemSelected="SurElementListeNoteSelectionnee">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>

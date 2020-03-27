@@ -10,11 +10,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="NavigationPrimary">#9E9E9E</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+            <Thickness x:Key="PageMargin">
+                <Thickness.Bottom>10</Thickness.Bottom>
+                <Thickness.Left>10</Thickness.Left>
+                <Thickness.Right>10</Thickness.Right>
+                <Thickness.Top>10</Thickness.Top>
+            </Thickness>
         </ResourceDictionary>
 
         <OnPlatform x:Key="FontSolid" x:TypeArguments="x:String">

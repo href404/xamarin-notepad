@@ -8,7 +8,7 @@
 
     <ContentPage.Content>
 
-        <Grid Margin="20">
+        <Grid Margin="{StaticResource PageMargin}">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
