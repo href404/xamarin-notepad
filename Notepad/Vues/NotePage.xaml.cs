@@ -8,7 +8,7 @@ using Xamarin.Forms.Xaml;
 namespace Notepad.Vues
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class NotePage : ContentPage
     {
         #region Variables
 
@@ -20,7 +20,7 @@ namespace Notepad.Vues
 
         #region Constructeur
 
-        public MainPage()
+        public NotePage()
         {
             InitializeComponent();
             
