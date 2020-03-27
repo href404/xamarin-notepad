@@ -25,7 +25,7 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Contenu, Mode=TwoWay}" Detail="{Binding DateDerniereModification, Mode=TwoWay}"/>
+                        <TextCell Text="{Binding Contenu, Mode=TwoWay}" Detail="{Binding DateDerniereModification, Converter={StaticResource DateTimeToString}, Mode=TwoWay}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
                 

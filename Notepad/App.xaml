@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:convertisseurs="clr-namespace:Notepad.Convertisseurs"
              mc:Ignorable="d"
              x:Class="Notepad.App">
 
@@ -20,6 +21,9 @@
             <On Platform="Android" Value="FontAwesomeSolid.otf#Solid" />
             <On Platform="iOS" Value="FontAwesomeSolid" />
         </OnPlatform>
+
+        <convertisseurs:DateTimeEnStringConvertisseur x:Key="DateTimeToString" />
+        
     </Application.Resources>
     
 </Application>
