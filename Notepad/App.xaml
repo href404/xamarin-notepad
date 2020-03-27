@@ -15,7 +15,15 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+            
             <Thickness x:Key="PageMargin">
+                <Thickness.Bottom>20</Thickness.Bottom>
+                <Thickness.Left>20</Thickness.Left>
+                <Thickness.Right>20</Thickness.Right>
+                <Thickness.Top>20</Thickness.Top>
+            </Thickness>
+
+            <Thickness x:Key="ListeMargin">
                 <Thickness.Bottom>10</Thickness.Bottom>
                 <Thickness.Left>10</Thickness.Left>
                 <Thickness.Right>10</Thickness.Right>

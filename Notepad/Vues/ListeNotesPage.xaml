@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Notepad.Vues.ListeNotesPage">
+             x:Class="Notepad.Vues.ListeNotesPage"
+             Title="Notepad">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note">
@@ -20,8 +21,8 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="ListeNotes" Margin="{StaticResource PageMargin}" ItemSelected="SurElementListeNoteSelectionnee">
+        <StackLayout Margin="{StaticResource ListeMargin}">
+            <ListView x:Name="ListeNotes" ItemSelected="SurElementListeNoteSelectionnee">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
