@@ -7,8 +7,16 @@
              x:Class="Notepad.Vues.ListeNotesPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note" IconImageSource="add_white.png" />
-        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres" IconImageSource="settings_white.png" />
+        <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontSolid}" Glyph="&#xf0fe;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontSolid}" Glyph="&#xf013;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

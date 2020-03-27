@@ -35,7 +35,9 @@ namespace Notepad.Controleurs.Implementations
 
         public void SauvegarderNote(NoteModele note)
         {
-            note.Chemin = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Guid.NewGuid() + EXTENSION_FICHIER_TEXTE));
+            if (note.Chemin == null)
+                note.Chemin = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Guid.NewGuid() + EXTENSION_FICHIER_TEXTE));
+            
             note.DateDerniereModification = DateTime.Now;
             File.WriteAllText(note.Chemin.FullName, note.Contenu);
             Debug.WriteLine("Sauvegarde effectuée !");
