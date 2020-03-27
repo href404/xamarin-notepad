@@ -1,5 +1,4 @@
-﻿using Notepad.Controleurs.Implementations;
-using Notepad.Controleurs.Interfaces;
+﻿using Notepad.Controleurs.Interfaces;
 using Notepad.Modeles;
 using System;
 using Xamarin.Forms;
