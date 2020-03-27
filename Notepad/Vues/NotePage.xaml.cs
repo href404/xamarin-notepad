@@ -50,7 +50,9 @@ namespace Notepad.Vues
         private async void SurAppuiSupprimer(object sender, EventArgs e) 
         {
             if (await DisplayAlert("Suppression", "Êtes-vous sur de vouloir supprimer votre note ?", "Oui", "Non"))
-                GestionnaireNote.SupprimerNote(Note); 
+                GestionnaireNote.SupprimerNote(Note);
+            
+            await Navigation.PopModalAsync();
         }
 
         #endregion

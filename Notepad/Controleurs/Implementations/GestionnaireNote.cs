@@ -67,6 +67,7 @@ namespace Notepad.Controleurs.Implementations
                 notes.Add(new NoteModele 
                 { 
                     Contenu = File.ReadAllText(fichier),
+                    Chemin = new FileInfo(fichier),
                     DateDerniereModification = File.GetLastWriteTime(fichier)
                 });
 
