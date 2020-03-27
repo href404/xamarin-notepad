@@ -7,8 +7,8 @@
              x:Class="Notepad.Vues.ListeNotesPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note" />
-        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres" />
+        <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note" IconImageSource="add_white.png" />
+        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres" IconImageSource="settings_white.png" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
