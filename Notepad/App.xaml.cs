@@ -1,4 +1,4 @@
-﻿using Notepad.Vues;
+﻿using Notepad.Views;
 using Xamarin.Forms;
 
 namespace Notepad

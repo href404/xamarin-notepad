@@ -1,9 +1,9 @@
-﻿using Notepad.Controleurs.Interfaces;
+﻿using Notepad.Services;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Notepad.Vues
+namespace Notepad.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage

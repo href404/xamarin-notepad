@@ -1,10 +1,10 @@
-﻿using Notepad.Controleurs.Interfaces;
-using Notepad.Modeles;
+﻿using Notepad.Models;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Notepad.Services;
 
-namespace Notepad.Vues
+namespace Notepad.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailNotePage : ContentPage

@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace Notepad.Convertisseurs
+namespace Notepad.Converters
 {
     public class DateTimeStringConverter : IValueConverter
     {

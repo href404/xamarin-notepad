@@ -1,6 +1,6 @@
-﻿using Notepad.Modeles;
+﻿using Notepad.Models;
 
-namespace Notepad.Controleurs.Interfaces
+namespace Notepad.Services
 {
     public interface INoteService
     {

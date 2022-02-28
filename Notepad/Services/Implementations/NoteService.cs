@@ -1,11 +1,10 @@
-﻿using Notepad.Controleurs.Interfaces;
-using Notepad.Modeles;
+﻿using Notepad.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-namespace Notepad.Controleurs.Implementations
+namespace Notepad.Services.Implementations
 {
     public class NoteService : INoteService
     {

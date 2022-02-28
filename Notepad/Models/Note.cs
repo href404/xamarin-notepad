@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Notepad.Modeles
+namespace Notepad.Models
 {
     public class Note
     {

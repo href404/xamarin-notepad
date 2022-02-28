@@ -1,7 +1,6 @@
-﻿using Notepad.Controleurs.Interfaces;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace Notepad.Controleurs.Implementations
+namespace Notepad.Services.Implementations
 {
     public class SettingsService : ISettingsService
     {

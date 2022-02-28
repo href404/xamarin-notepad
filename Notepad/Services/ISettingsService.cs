@@ -1,4 +1,4 @@
-﻿namespace Notepad.Controleurs.Interfaces
+﻿namespace Notepad.Services
 {
     public interface ISettingsService
     {
