@@ -4,16 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Notepad.Vues.ListeNotesPage"
+             x:Class="Notepad.Vues.NotesPage"
              Title="Notepad">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="SurAppuiNouvelleNote" Text="Nouvelle note">
+        <ToolbarItem Clicked="OnNewNoteClicked" Text="Nouvelle note">
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource FontSolid}" Glyph="&#xf0fe;" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-        <ToolbarItem Clicked="SurAppuiParametres" Text="Parametres">
+        <ToolbarItem Clicked="OnSettingsClicked" Text="Parametres">
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource FontSolid}" Glyph="&#xf013;" />
             </ToolbarItem.IconImageSource>
@@ -22,7 +22,7 @@
     
     <ContentPage.Content>
         <StackLayout Margin="{StaticResource ListeMargin}">
-            <ListView x:Name="ListeNotes" ItemSelected="SurElementListeNoteSelectionnee">
+            <ListView x:Name="ListeNotes" ItemSelected="OnNotesSelected">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>

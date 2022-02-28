@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Notepad.Vues.ParametrePage"
+    x:Class="Notepad.Vues.SettingsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -36,7 +36,7 @@
                     HorizontalOptions="StartAndExpand"
                     Text="Charger le document au démarrage"
                     VerticalTextAlignment="Center" />
-                <Switch x:Name="ChargementNoteDemarrage" />
+                <Switch x:Name="HasNotesLoadedOnStart" />
             </StackLayout>
 
             <StackLayout
@@ -47,20 +47,20 @@
                     HorizontalOptions="StartAndExpand"
                     Text="Sauvegarde le document à la fermeture"
                     VerticalTextAlignment="Center" />
-                <Switch x:Name="SauvegardeNoteFermeture" />
+                <Switch x:Name="HasNotesSavedOnClose" />
             </StackLayout>
 
             <Button
                 Grid.Row="3"
                 Grid.ColumnSpan="1"
-                Clicked="SurAppuiAnnuler"
+                Clicked="OnCancelClicked"
                 Text="Annuler"
                 VerticalOptions="End" />
 
             <Button
                 Grid.Row="3"
                 Grid.Column="1"
-                Clicked="SurAppuiEnregistrer"
+                Clicked="OnSaveClicked"
                 Text="Sauvegarder"
                 VerticalOptions="End" />
 

@@ -36,7 +36,7 @@
             <On Platform="iOS" Value="FontAwesomeSolid" />
         </OnPlatform>
 
-        <convertisseurs:DateTimeEnStringConvertisseur x:Key="DateTimeToString" />
+        <convertisseurs:DateTimeStringConverter x:Key="DateTimeToString" />
         
     </Application.Resources>
     

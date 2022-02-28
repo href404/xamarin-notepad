@@ -3,18 +3,12 @@ using Xamarin.Forms;
 
 namespace Notepad.Controleurs.Implementations
 {
-    public class GestionnaireParametre : IGestionnaireParametre
+    public class SettingsService : ISettingsService
     {
-        #region Constantes
+        private const string CHARGEMENT_NOTE_AU_DEMARRAGE = "Load";
+        private const string SAUVEGARDE_NOTE_SUR_FERMETURE = "Save";
 
-        private const string CHARGEMENT_NOTE_AU_DEMARRAGE = "ChargementNoteAuDemarrage";
-        private const string SAUVEGARDE_NOTE_SUR_FERMETURE = "SauvegardeNoteSurFermeture";
-
-        #endregion
-
-        #region Implémentation IGestionnaireParametre
-
-        public bool ObtenirChargementNoteAuDemarrage()
+        public bool HasNotesLoadedOnStart()
         {
             if (!Application.Current.Properties.ContainsKey(CHARGEMENT_NOTE_AU_DEMARRAGE))
                 return false;
@@ -22,7 +16,7 @@ namespace Notepad.Controleurs.Implementations
             return (bool)Application.Current.Properties[CHARGEMENT_NOTE_AU_DEMARRAGE];
         }
 
-        public bool ObtenirSauvegarderNoteSurFermeture()
+        public bool HasNotesSavedOnClose()
         {
             if (!Application.Current.Properties.ContainsKey(SAUVEGARDE_NOTE_SUR_FERMETURE))
                 return false;
@@ -30,17 +24,14 @@ namespace Notepad.Controleurs.Implementations
             return (bool)Application.Current.Properties[SAUVEGARDE_NOTE_SUR_FERMETURE];
         }
 
-        public void DefinirChargementNoteAuDemarrage(bool estNoteChargeeAuDemarrage)
+        public void SetNotesLoadedOnStart(bool estNoteChargeeAuDemarrage)
         {
             Application.Current.Properties[CHARGEMENT_NOTE_AU_DEMARRAGE] = estNoteChargeeAuDemarrage;
         }
 
-        public void DefinirSauvegarderNoteSurFermeture(bool estNoteSauvegardeeSurFermeture)
+        public void SetNotesSavedOnClose(bool estNoteSauvegardeeSurFermeture)
         {
             Application.Current.Properties[SAUVEGARDE_NOTE_SUR_FERMETURE] = estNoteSauvegardeeSurFermeture;
         }
-
-        #endregion
-
     }
 }
